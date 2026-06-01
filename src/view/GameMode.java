@@ -5,7 +5,8 @@ package view;
  */
 public enum GameMode {
     NORMAL("Обычный режим"),
-    SEQUENCE("Режим последовательности");
+    SEQUENCE("Режим последовательности"),
+    BAN ("Режим с запретом");
 
     private final String displayName;
 

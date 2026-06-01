@@ -66,10 +66,10 @@ public class SequenceColorRestriction implements MoveRestriction {
                 randomColor = getRandomColor();
             }
             return String.format("Ход %d/%d: можно двигать только %s блоки",
-                    movesInPhase, phase.getDuration(), phase.getColorName(randomColor));
+                    movesInPhase, phase.getDuration(), getColorName(randomColor));
         } else {
             return String.format("Ход %d/%d: можно двигать только %s блоки",
-                    movesInPhase, phase.getDuration(), phase.getColorName(phase.getAllowedColor()));
+                    movesInPhase, phase.getDuration(), getColorName(phase.getAllowedColor()));
         }
     }
 

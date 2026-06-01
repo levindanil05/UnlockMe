@@ -54,26 +54,5 @@ public class ColorPhase {
         return color == allowedColor;
     }
 
-    @Override
-    public String toString() {
-        if (isRandom) {
-            return duration + " ход(ов): случайный цвет";
-        }
-        return duration + " ход(ов): " + getColorName(allowedColor);
-    }
 
-    public String getColorName(Color color) {
-        if (color == null) return "неизвестный";
-        switch (color) {
-            case RED: return "КРАСНЫЙ";
-            case BLUE: return "СИНИЙ";
-            case GREEN: return "ЗЕЛЕНЫЙ";
-            case YELLOW: return "ЖЕЛТЫЙ";
-            case ORANGE: return "ОРАНЖЕВЫЙ";
-            case PURPLE: return "ФИОЛЕТОВЫЙ";
-            case AQUA: return "ГОЛУБОЙ";
-            case GRAY: return "СЕРЫЙ";
-            default: return color.name();
-        }
-    }
 }

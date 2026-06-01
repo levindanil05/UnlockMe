@@ -15,7 +15,8 @@ public class GameModeSelector {
     public static GameMode showModeSelectionDialog() {
         String[] options = {
                 "Обычный режим (любые блоки)",
-                "Режим последовательности (с ограничениями)"
+                "Режим последовательности (с ограничениями)",
+                "Режим с ограничениями"
         };
 
         JPanel panel = new JPanel(new BorderLayout(10, 10));
@@ -51,6 +52,12 @@ public class GameModeSelector {
                 options[0]
         );
 
-        return result == 0 ? GameMode.NORMAL : GameMode.SEQUENCE;
+        if (result == 0) {
+            return GameMode.NORMAL;
+        } else if (result == 1) {
+            return GameMode.SEQUENCE;
+        } else {
+            return GameMode.BAN;
+        }
     }
 }

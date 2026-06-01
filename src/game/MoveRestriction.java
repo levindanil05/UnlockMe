@@ -22,4 +22,28 @@ public interface MoveRestriction {
      * @return текстовое описание для отображения игроку
      */
     String getDescription(int moveNumber);
+
+    default String getColorName(Color color) {
+        if (color == null) return "неизвестный";
+        switch (color) {
+            case RED:
+                return "КРАСНЫЕ";
+            case BLUE:
+                return "СИНИЕ";
+            case GREEN:
+                return "ЗЕЛЕНЫЕ";
+            case YELLOW:
+                return "ЖЕЛТЫЕ";
+            case ORANGE:
+                return "ОРАНЖЕВЫЕ";
+            case PURPLE:
+                return "ФИОЛЕТОВЫЕ";
+            case AQUA:
+                return "ГОЛУБЫЕ";
+            case GRAY:
+                return "СЕРЫЕ";
+            default:
+                return color.name();
+        }
+    }
 }

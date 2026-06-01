@@ -1,5 +1,7 @@
 package view;
 
+import block.Color;
+import game.BanColorRestriction;
 import game.Game;
 import game.AnyColorRestriction;
 
@@ -16,9 +18,13 @@ public class Main {
         if (mode == GameMode.SEQUENCE) {
             game.getLevel().setupSequenceModeRestriction();
             System.out.println(" Выбран режим ПОСЛЕДОВАТЕЛЬНОСТИ");
-        } else {
-            game.getLevel().setMoveRestriction(new AnyColorRestriction());
-            System.out.println(" Выбран ОБЫЧНЫЙ режим");
+        } else if (mode == GameMode.BAN) {
+            game.getLevel().setMoveRestriction(new BanColorRestriction(game.getGameField(), 2, Color.AQUA));
+            System.out.println(" Выбран режим ОГРАНИЧЕНИЯ");
+        }
+            else {
+                game.getLevel().setMoveRestriction(new AnyColorRestriction());
+                System.out.println(" Выбран ОБЫЧНЫЙ режим");
         }
 
         // Создаем окно игры
