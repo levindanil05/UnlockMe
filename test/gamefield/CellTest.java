@@ -1,6 +1,6 @@
 package gamefield;
 
-import block.Block;
+import game.Block;
 import block.Color;
 import block.Orientation;
 import org.junit.jupiter.api.BeforeEach;
@@ -89,16 +89,6 @@ class CellTest {
         assertFalse(cell.isNeighbor(new Cell(5, 5)));
     }
 
-    @Test
-    void testGetUnitsByClass() {
-        Block block1 = new Block(Color.RED, Orientation.HORIZONTAL, 2);
-        Block block2 = new Block(Color.BLUE, Orientation.VERTICAL, 2);
-
-        cell.putUnit(block1);
-        cell.putUnit(block2);
-
-        assertEquals(2, cell.getUnits(Block.class).length);
-    }
 
     @Test
     void testToString() {

@@ -5,8 +5,8 @@ import game.MoveRestriction;
 import gamefield.Cell;
 import gamefield.Direction;
 import gamefield.GameField;
-import block.Block;
-import block.AbstractBlock;
+import game.Block;
+
 import block.Color;
 
 import javax.swing.*;
@@ -106,8 +106,8 @@ public class GameFieldView extends JPanel {
 
         Cell clicked = field.getCell(row, col);
         if (clicked != null && !clicked.isEmpty()) {
-            List<AbstractBlock> units = clicked.getUnits();
-            for (AbstractBlock u : units) {
+            List<Block> units = clicked.getUnits();
+            for (Block u : units) {
                 if (u instanceof Block block) {
                     selectedBlock = block;
                     highlightBlock(block, true);
@@ -125,7 +125,7 @@ public class GameFieldView extends JPanel {
             for (int c = 0; c < gridSize; c++) {
                 Cell cell = field.getCell(r, c);
                 if (cell != null && !cell.isEmpty()) {
-                    List<AbstractBlock> units = cell.getUnits();
+                    List<Block> units = cell.getUnits();
                     if (units.contains(block)) {
                         widgets[r][c].setHighlighted(highlight);
                     }

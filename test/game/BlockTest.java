@@ -1,5 +1,7 @@
-package block;
+package game;
 
+import block.Color;
+import block.Orientation;
 import gamefield.Cell;
 import gamefield.Direction;
 import org.junit.jupiter.api.BeforeEach;

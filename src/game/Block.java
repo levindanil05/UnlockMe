@@ -1,12 +1,22 @@
-package block;
+package game;
 import gamefield.*;
+import block.Color;
+import block.Orientation;
+import gamefield.Cell;
+import gamefield.Direction;
 
 /**
  * Конкретный класс блока, реализующий логику перемещения.
  * Блок знает только о своих ячейках-владельцах, не знает о поле.
  * Может перемещаться в соседние незанятые ячейки по своей линии.
  */
-public class Block extends AbstractBlock {
+public class Block {
+
+    private Color color;
+    private Orientation orientation;
+    private Cell[] ownerCells;
+    private int length;
+
 
     /**
      * Конструктор блока.
@@ -15,7 +25,10 @@ public class Block extends AbstractBlock {
      * @param length длина блока
      */
     public Block(Color color, Orientation orientation, int length) {
-        super(color, orientation, length);
+        this.color = color;
+        this.orientation = orientation;
+        this.length = length;
+        this.ownerCells = new Cell[length];
     }
 
     /**
@@ -24,8 +37,7 @@ public class Block extends AbstractBlock {
      * @param steps количество шагов
      * @return true, если перемещение успешно
      */
-    @Override
-    public boolean move(Direction direction, int steps) {
+    boolean move(Direction direction, int steps) {
         // Проверяем, что направление соответствует ориентации блока
         if (!isValidDirection(direction)) {
             return false;
@@ -209,4 +221,31 @@ public class Block extends AbstractBlock {
                 return false;
         }
     }
+
+    public Cell[] getOwnerCells() {
+        return ownerCells;
+    }
+
+    public void setOwnerCell(int index, Cell cell) {
+        if (index >= 0 && index < ownerCells.length) {
+            ownerCells[index] = cell;
+        }
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Orientation getOrientation() {
+        return orientation;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public boolean isRedBlock() {
+        return color == Color.RED;
+    }
+
 }

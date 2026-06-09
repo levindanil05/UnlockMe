@@ -1,7 +1,7 @@
 package view;
 
 import gamefield.Cell;
-import block.AbstractBlock;
+import game.Block;
 import block.Color;
 import javax.swing.*;
 import java.awt.*;
@@ -41,8 +41,8 @@ public class CellWidget extends JPanel {
             label.setBackground(isExit ? new java.awt.Color(100, 255, 100) : java.awt.Color.WHITE);
             setBorder(BorderFactory.createLineBorder(java.awt.Color.DARK_GRAY, 1));
         } else {
-            List<AbstractBlock> units = cell.getUnits();
-            AbstractBlock unit = units.isEmpty() ? null : units.get(0);
+            List<Block> units = cell.getUnits();
+            Block unit = units.isEmpty() ? null : units.get(0);
 
             if (unit != null) {
                 java.awt.Color bgColor = getColorForBlock(unit);
@@ -57,7 +57,7 @@ public class CellWidget extends JPanel {
         }
     }
 
-    private java.awt.Color getColorForBlock(AbstractBlock unit) {
+    private java.awt.Color getColorForBlock(Block unit) {
         switch (unit.getColor()) {
             case RED:
                 return new java.awt.Color(220, 40, 40);

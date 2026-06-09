@@ -1,5 +1,6 @@
 package game;
 import block.Color;
+import block.Orientation;
 import game.Level;
 import gamefield.GameField;
 
@@ -59,10 +60,10 @@ public class Game {
      */
     private void createDefaultLevel() {
         Level.BlockConfiguration[] configs = {
-                new Level.BlockConfiguration(block.Color.RED, block.Orientation.HORIZONTAL, 2, 2, 0),
-                new Level.BlockConfiguration(block.Color.GRAY, block.Orientation.HORIZONTAL, 2, 0, 1),
-                new Level.BlockConfiguration(block.Color.GRAY, block.Orientation.HORIZONTAL, 2, 4, 2),
-                new Level.BlockConfiguration(Color.AQUA, block.Orientation.VERTICAL, 2, 2, 5),
+                new Level.BlockConfiguration(Color.RED, Orientation.HORIZONTAL, 2, 2, 0),
+                new Level.BlockConfiguration(Color.GRAY, Orientation.HORIZONTAL, 2, 0, 1),
+                new Level.BlockConfiguration(Color.GRAY, Orientation.HORIZONTAL, 2, 4, 2),
+                new Level.BlockConfiguration(Color.AQUA, Orientation.VERTICAL, 2, 2, 5),
         };
         level.setBlockConfigurations(configs);
     }
@@ -93,8 +94,8 @@ public class Game {
             for (int col = 0; col < gameField.getWidth(); col++) {
                 gamefield.Cell cell = gameField.getCell(row, col);
                 for (var unit : cell.getUnits()) {
-                    if (unit.isRedBlock() && unit instanceof block.Block) {
-                        block.Block redBlock = (block.Block) unit;
+                    if (unit.isRedBlock() && unit instanceof Block) {
+                        Block redBlock = (Block) unit;
                         gamefield.Cell[] ownerCells = redBlock.getOwnerCells();
 
                         if (ownerCells == null || ownerCells.length == 0) {
@@ -139,8 +140,8 @@ public class Game {
             for (int col = 0; col < gameField.getWidth(); col++) {
                 gamefield.Cell cell = gameField.getCell(row, col);
                 for (var unit : cell.getUnits()) {
-                    if (unit.isRedBlock() && unit instanceof block.Block) {
-                        block.Block redBlock = (block.Block) unit;
+                    if (unit.isRedBlock() && unit instanceof Block) {
+                        Block redBlock = (Block) unit;
                         gamefield.Cell[] ownerCells = redBlock.getOwnerCells();
 
                         if (ownerCells == null || ownerCells.length == 0) {
@@ -186,7 +187,7 @@ public class Game {
      * @param steps количество шагов
      * @return true, если перемещение успешно
      */
-    public boolean moveBlock(block.Block block, gamefield.Direction direction, int steps) {
+    public boolean moveBlock(Block block, gamefield.Direction direction, int steps) {
         if (!gameActive || gameOver) {
             return false;
         }

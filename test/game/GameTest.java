@@ -4,7 +4,6 @@ import block.Color;
 import gamefield.Direction;
 import gamefield.GameField;
 import gamefield.Cell;
-import block.Block;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

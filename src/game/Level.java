@@ -1,5 +1,6 @@
 package game;
-import block.*;
+import block.Color;
+import block.Orientation;
 import gamefield.*;
 
 /**
@@ -132,7 +133,7 @@ public class Level {
      */
     private Block findRedBlock() {
         for (Cell cell : getAllCells()) {
-            for (AbstractBlock block : cell.getUnits()) {
+            for (Block block : cell.getUnits()) {
                 if (block.isRedBlock() && block instanceof Block) {
                     return (Block) block;
                 }

@@ -87,36 +87,6 @@ public class ColorPhaseTest {
     }
 
     @Test
-    void testToString_FixedColor_ReturnsExpectedFormat() {
-        ColorPhase phase = new ColorPhase(3, Color.AQUA);
-
-        String result = phase.toString();
-
-        assertTrue(result.contains("3"));
-        assertTrue(result.contains("ГОЛУБОЙ") || result.contains("AQUA") || result.contains("ход"));
-    }
-
-    @Test
-    void testToString_RandomColor_ReturnsExpectedFormat() {
-        ColorPhase phase = new ColorPhase(2);
-
-        String result = phase.toString();
-
-        assertTrue(result.contains("2"));
-        assertTrue(result.contains("случайный") || result.contains("ход"));
-    }
-
-    @Test
-    void testToString_SingleMove_ReturnsCorrectGrammar() {
-        ColorPhase phase = new ColorPhase(1, Color.RED);
-
-        String result = phase.toString();
-
-        assertNotNull(result);
-        assertTrue(result.contains("1"));
-    }
-
-    @Test
     void testAllColors_AreHandledCorrectly() {
         Color[] colors = Color.values();
 

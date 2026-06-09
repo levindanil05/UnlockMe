@@ -2,7 +2,7 @@ package test.game;
 
 import game.BanColorRestriction;
 import gamefield.GameField;
-import block.Block;
+import game.Block;
 import block.Color;
 import block.Orientation;
 import org.junit.jupiter.api.Test;

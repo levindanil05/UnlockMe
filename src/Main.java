@@ -1,9 +1,10 @@
-package view;
-
 import block.Color;
 import game.BanColorRestriction;
 import game.Game;
 import game.AnyColorRestriction;
+import view.GameFrame;
+import view.GameMode;
+import view.GameModeSelector;
 
 public class Main {
     public static void main(String[] args) {

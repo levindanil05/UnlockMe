@@ -1,6 +1,6 @@
 package gamefield;
 
-import block.*;
+import game.Block;
 
 import java.util.*;
 
@@ -10,7 +10,7 @@ import java.util.*;
  * Знает о граничащих с ней соседних ячейках и блоках, которые в ней расположены.
  */
 public class Cell {
-    private List<AbstractBlock> units;          // Блоки, расположенные в ячейке
+    private List<Block> units;          // Блоки, расположенные в ячейке
     private Map<Direction, Cell> neighbors;     // Соседние ячейки
     private int row;                            // Номер строки
     private int col;                            // Номер столбца
@@ -32,7 +32,7 @@ public class Cell {
      * @param unit блок для размещения
      * @return true, если блок успешно размещен
      */
-    public boolean putUnit(AbstractBlock unit) {
+    public boolean putUnit(Block unit) {
         if (unit == null) {
             return false;
         }
@@ -50,19 +50,8 @@ public class Cell {
      * @param unit блок для извлечения
      * @return true, если блок успешно извлечен
      */
-    public boolean extractUnit(AbstractBlock unit) {
+    public boolean extractUnit(Block unit) {
         return units.remove(unit);
-    }
-
-    /**
-     * Получить блоки определенного класса.
-     * @param clazz класс блоков
-     * @return массив блоков
-     */
-    public AbstractBlock[] getUnits(Class<?> clazz) {
-        return units.stream()
-                .filter(clazz::isInstance)
-                .toArray(AbstractBlock[]::new);
     }
 
     /**
@@ -128,7 +117,7 @@ public class Cell {
      * Получить все блоки в ячейке.
      * @return список блоков
      */
-    public List<AbstractBlock> getUnits() {
+    public List<Block> getUnits() {
         return new ArrayList<>(units);
     }
 
